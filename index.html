@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16">
+  <title>GLOBAL STOCK AI | Market Terminal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">G</span><span>GLOBAL<span class="brand-muted">STOCK AI</span></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav>
+        <a class="nav-item active" href="#overview"><span>▦</span> 시장 개요</a>
+        <a class="nav-item" href="#rankings"><span>⌁</span> AI 종목 랭킹</a>
+        <a class="nav-item" href="#news"><span>▤</span> 뉴스 인텔리전스</a>
+        <a class="nav-item" href="#paper"><span>◫</span> 모의투자</a>
+        <a class="nav-item" href="#method"><span>◎</span> 분석 방법론</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <div><b>DEMO MODE</b><small>실시간 데이터 미연결</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">G</span> GLOBAL STOCK AI</div>
+        <div class="breadcrumb">MARKET INTELLIGENCE <span>/</span> OVERVIEW</div>
+        <div class="top-actions"><span class="market-status"><i></i> DEMO DATA</span><button class="icon-button" id="refreshBtn" aria-label="화면 새로고침">↻</button></div>
+      </header>
+
+      <section class="page-heading" id="overview">
+        <div>
+          <div class="eyebrow">GLOBAL MARKET MONITOR</div>
+          <h1>시장 개요 <span class="live-tag">PAPER / DEMO</span></h1>
+          <p>미국 · 한국 시장을 위한 AI 기반 분석 터미널</p>
+        </div>
+        <div class="date-box"><span>LOCAL SESSION</span><b id="today">—</b><small>화면의 모든 수치는 예시 데이터입니다.</small></div>
+      </section>
+
+      <section class="market-grid">
+        <article class="market-card">
+          <div class="card-top"><span>S&amp;P 500</span><span class="exchange">US · INDEX</span></div>
+          <div class="market-value">5,842.17</div><div class="change positive">▲ 0.82% <span>+47.61</span></div>
+          <div class="mini-chart up"><svg viewBox="0 0 220 52" preserveAspectRatio="none"><path d="M0 43 L18 37 L35 40 L53 28 L70 32 L88 20 L105 25 L123 16 L140 22 L158 11 L176 16 L194 5 L220 8"/></svg></div>
+        </article>
+        <article class="market-card">
+          <div class="card-top"><span>NASDAQ</span><span class="exchange">US · INDEX</span></div>
+          <div class="market-value">18,214.63</div><div class="change positive">▲ 1.14% <span>+205.18</span></div>
+          <div class="mini-chart up"><svg viewBox="0 0 220 52" preserveAspectRatio="none"><path d="M0 45 L18 39 L35 41 L53 31 L70 34 L88 26 L105 27 L123 18 L140 21 L158 13 L176 16 L194 6 L220 4"/></svg></div>
+        </article>
+        <article class="market-card">
+          <div class="card-top"><span>KOSPI</span><span class="exchange">KR · INDEX</span></div>
+          <div class="market-value">2,684.31</div><div class="change negative">▼ 0.26% <span>-7.02</span></div>
+          <div class="mini-chart down"><svg viewBox="0 0 220 52" preserveAspectRatio="none"><path d="M0 9 L18 14 L35 11 L53 20 L70 17 L88 25 L105 22 L123 31 L140 26 L158 36 L176 31 L194 43 L220 46"/></svg></div>
+        </article>
+        <article class="market-card">
+          <div class="card-top"><span>USD / KRW</span><span class="exchange">FX · INDICATIVE</span></div>
+          <div class="market-value">1,378.50</div><div class="change negative">▼ 0.18% <span>-2.50</span></div>
+          <div class="mini-chart down"><svg viewBox="0 0 220 52" preserveAspectRatio="none"><path d="M0 8 L18 13 L35 10 L53 19 L70 15 L88 23 L105 20 L123 29 L140 26 L158 35 L176 31 L194 40 L220 44"/></svg></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel ranking-panel" id="rankings">
+          <div class="panel-heading"><div><div class="eyebrow">MODEL OUTPUT · SAMPLE</div><h2>AI 종목 랭킹</h2></div><span class="pill neutral">산출 예시</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>종목</th><th>시장</th><th>단기 점수</th><th>중기 점수</th><th>위험</th></tr></thead>
+              <tbody>
+                <tr><td><b>NVDA</b><small>NVIDIA</small></td><td>NASDAQ</td><td><span class="score">88</span></td><td>79</td><td><span class="risk high">높음</span></td></tr>
+                <tr><td><b>MSFT</b><small>Microsoft</small></td><td>NASDAQ</td><td><span class="score">81</span></td><td>87</td><td><span class="risk low">낮음</span></td></tr>
+                <tr><td><b>005930</b><small>삼성전자</small></td><td>KOSPI</td><td><span class="score">76</span></td><td>82</td><td><span class="risk mid">중간</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-foot">※ 종목·점수는 UI 확인용 가상 예시이며 투자 추천이 아닙니다.</div>
+        </article>
+
+        <article class="panel portfolio-panel" id="paper">
+          <div class="panel-heading"><div><div class="eyebrow">VIRTUAL ACCOUNT</div><h2>모의투자 계좌</h2></div><span class="pill green">PAPER</span></div>
+          <div class="balance-label">초기 가상 자산</div>
+          <div class="balance">$100,000.00</div>
+          <div class="portfolio-stats"><div><span>현금</span><b>$100,000.00</b></div><div><span>평가 자산</span><b>$0.00</b></div></div>
+          <div class="empty-state"><span>◌</span><b>아직 체결된 모의 주문이 없습니다.</b><small>주문 기능은 다음 개발 단계에서 연결됩니다.</small></div>
+        </article>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <article class="panel" id="news">
+          <div class="panel-heading"><div><div class="eyebrow">NEWS INTELLIGENCE</div><h2>주요 뉴스 모니터</h2></div><span class="pill neutral">샘플 피드</span></div>
+          <div class="news-list">
+            <div class="news-row"><span class="news-tag blue">TECH</span><div><b>AI 반도체 산업 동향 데이터 연결 대기</b><small>뉴스 API 연결 후 기업별 영향 분석이 표시됩니다.</small></div><time>—</time></div>
+            <div class="news-row"><span class="news-tag purple">MACRO</span><div><b>미국 금리·물가 지표 모니터링 대기</b><small>FRED 등 공식 경제 데이터 연동 예정</small></div><time>—</time></div>
+            <div class="news-row"><span class="news-tag orange">FILING</span><div><b>SEC EDGAR · OpenDART 공시 연결 대기</b><small>공시 원문과 기업 식별자 매핑 예정</small></div><time>—</time></div>
+          </div>
+        </article>
+        <article class="panel" id="method">
+          <div class="panel-heading"><div><div class="eyebrow">TRANSPARENCY</div><h2>분석 상태</h2></div><span class="pill amber">초기 단계</span></div>
+          <div class="method-list">
+            <div><span>시장 데이터</span><b class="muted">미연결</b></div>
+            <div><span>뉴스 분석 모델</span><b class="muted">미연결</b></div>
+            <div><span>재무 분석 엔진</span><b class="muted">미연결</b></div>
+            <div><span>모의 주문 엔진</span><b class="muted">미연결</b></div>
+          </div>
+          <p class="disclaimer">데이터 연결 전에는 실제 시장 상황이나 투자 판단에 사용하지 마세요. 분석 결과는 향후에도 불확실성을 포함합니다.</p>
+        </article>
+      </section>
+      <footer>GLOBAL STOCK AI <span>·</span> EDUCATIONAL PAPER-TRADING PROJECT <span>·</span> NO LIVE TRADING</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
