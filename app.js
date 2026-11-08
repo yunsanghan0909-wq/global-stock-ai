@@ -12,7 +12,6 @@ if (dateNode) {
   }).format(new Date());
 }
 
-// 주가 데이터 가져오기
 async function getStockQuote(symbol) {
   try {
     const response = await fetch(
@@ -22,46 +21,38 @@ async function getStockQuote(symbol) {
     const data = await response.json();
 
     if (!response.ok || data.status === "error" || data.code) {
-      throw new Error(data.message || data.message || "주가 조회 실패");
+      throw new Error(data.message || "API 조회 실패");
     }
 
     return data;
   } catch (error) {
-    console.error(`${symbol} 조회 오류:`, error);
+    console.error(symbol, error);
     return null;
   }
 }
 
-// 화면의 주가 표시 요소 업데이트
-async function updateStock(symbol, elementId) {
-  const data = await getStockQuote(symbol);
-  const element = document.getElementById(elementId);
-
-  if (!data || !element) return;
-
-  const price = Number(data.close);
-
-  if (Number.isFinite(price)) {
-    element.textContent = price.toLocaleString("en-US", {
-      maximumFractionDigits: 2
-    });
-  }
+function formatPrice(value) {
+  const number = Number(value);
+  return Number.isFinite(number)
+    ? number.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })
+    : "--";
 }
 
-// 새로고침 버튼
+async function loadMarketData() {
+  const symbols = ["AAPL", "MSFT", "NVDA"];
+
+  const results = await Promise.all(
+    symbols.map(symbol => getStockQuote(symbol))
+  );
+
+  console.log("시장 데이터:", results);
+}
+
 document.getElementById("refreshBtn")?.addEventListener("click", () => {
-  window.location.reload();
+  loadMarketData();
 });
 
-// API 연결 확인용
-async function testStockAPI() {
-  const apple = await getStockQuote("AAPL");
-
-  if (apple) {
-    console.log("Apple 주가 데이터 연결 성공:", apple);
-  } else {
-    console.log("Apple 주가 데이터 연결 실패");
-  }
-}
-
-testStockAPI();
+loadMarketData();
